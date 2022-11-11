@@ -6,8 +6,10 @@ def calc_fuel_costs(positions):
     fuel_costs = [0 for n in positions]
     for i in range(len(fuel_costs)):
         for position in range(len(positions)):
-            # The cost is the number of crabs to move * the distance.
-            fuel_costs[i] += abs(position - i) * positions[position]
+            # Costs follow the triangular numbers formula (n(n+1))/2 
+            # The cost is the number of crabs to move * triangular number.
+            n = abs(position - i) 
+            fuel_costs[i] +=  int((n*(n+1))/2) * positions[position]
 
     return fuel_costs
 
